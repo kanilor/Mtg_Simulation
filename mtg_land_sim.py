@@ -78,3 +78,4 @@ def simulate(lands, dorks):
 result = simulate(lands=lands, dorks=dorks)
 
 print(result)
+
