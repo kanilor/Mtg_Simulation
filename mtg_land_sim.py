@@ -39,7 +39,7 @@ for i in range(0,runs):
 		if mull_no == 0:
 			mull_criteria = hand.count('land')<= 1 and hand.count('land')+hand.count('dork')<=2 and hand.count('spell') < 2
 		elif mull_no == 1:
-			mull_criteria = (hand.count('land') <= 1 or hand.count('land')>= 6) and hand.count('spell') >= 1
+			mull_criteria = (hand.count('land') <= 1 or hand.count('land')>= 6) or hand.count('spell') <= 1
 		elif mull_no == 2:
 			mull_criteria = hand.count('land')== 0 and hand.count('spell') < 1
 
