@@ -4,10 +4,8 @@ import copy
 import argparse
 
 parser = argparse.ArgumentParser(description='MTG Land Simulator')
-parser.add_argument('--lands', dest='lands', type=int, help='Number of lands',
-                    default=23)
-parser.add_argument('--dorks', dest='dorks', type=int, help='Number of dorks',
-                    default=8)
+parser.add_argument('--lands', dest='lands', type=int, help='Number of lands', default=23)
+parser.add_argument('--dorks', dest='dorks', type=int, help='Number of dorks', default=8)
 RUNS = 50000
 
 args = parser.parse_args()
@@ -55,18 +53,18 @@ def simulate(lands, dorks):
                 mull_criteria = hand.count('land')== 0 and hand.count('spell') < 1
 
             if mull_criteria:
-                hand_size-=1
+                hand_size -= 1
                 deck = copy.deepcopy(deck_list)
                 hand =[]
-                draw(hand_size,deck,hand)
+                draw(hand_size, deck, hand)
             else:
                 break
-        if hand_size<5:    #If you did mull three times, e.g to 4, concede
+        if hand_size < 5:    #If you did mull three times, e.g to 4, concede
             continue
 
         #---------------checking consistency of mana-------------------#
         draw(2, deck, hand) #T3 on the play
-        success_condition = hand.count('land')+hand[:len(hand)-1].count('dork')>=3
+        success_condition = hand.count('land') + hand[:len(hand)-1].count('dork')>=3
         #4 mana sources by T3 including dorks. A dork doesn't count as a source if you drew it on T3 i.e your 2nd draw
 
         if success_condition:
