@@ -39,7 +39,7 @@ def simulate(lands, dorks):
 
         #------------------initial draws and mulligans ---------------------#
         draw(7, deck, hand)
-        hand_size = 8
+        hand_size = 7
         while hand_size >4: 
 
             #mulligan conditions:
