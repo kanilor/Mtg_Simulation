@@ -6,7 +6,6 @@ def draw(n):
 	for x in range(0,n):
 		draw_key=random.randint(0,len(deck)-1)
 		hand.append(deck.pop(draw_key))
-	return
 
 
 #------------------construct a deck ---------------------#
