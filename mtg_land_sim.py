@@ -9,6 +9,8 @@ def draw(n):
 	return
 
 
+#test push
+
 #------------------construct a deck ---------------------#
 lands = 23
 dorks = 8
