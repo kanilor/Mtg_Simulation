@@ -37,9 +37,9 @@ for i in range(0,runs):
 		#with 5: To keep, need at least 1 land, at least 1 spell.
 
 		if mull_no == 0:
-			mull_criteria = hand.count('land')<=1 and hand.count('land')+hand.count('dork')<=2 and hand.count('spell') <1
+			mull_criteria = hand.count('land')<= 1 and hand.count('land')+hand.count('dork')<=2 and hand.count('spell') < 1
 		elif mull_no == 1:
-			mull_criteria = (hand.count('land') <=1 or hand.count('land')>=6) and hand.count('spell') >=1
+			mull_criteria = (hand.count('land') <= 1 or hand.count('land')>= 6) and hand.count('spell') >= 1
 		elif mull_no == 2:
 			mull_criteria = hand.count('land')== 0 and hand.count('spell') < 1
 
@@ -54,6 +54,7 @@ for i in range(0,runs):
 		continue
 
 	#---------------checking consistency of mana-------------------#
+
 	draw(2) #T3 on the play
 	success_condition = hand.count('land')+hand[:len(hand)-1].count('dork')>=3
 	#4 mana sources by T3 including dorks. A dork doesn't count as a source if you drew it on T3 i.e your 2nd draw
