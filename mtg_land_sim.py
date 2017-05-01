@@ -61,7 +61,7 @@ def simulate(lands, dorks):
                 draw(hand_size,deck,hand)
             else:
                 break
-        if mull_no>=3:    #If you did mull three times, e.g to 4, concede
+        if hand_size<5:    #If you did mull three times, e.g to 4, concede
             continue
 
         #---------------checking consistency of mana-------------------#
