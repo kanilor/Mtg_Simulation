@@ -39,26 +39,26 @@ def simulate(lands, dorks):
 
         #------------------initial draws and mulligans ---------------------#
         draw(7, deck, hand)
-        mull_no=0
-        while mull_no <3:   #Only lets you draw a new hand a maximum of 2 times
+        hand_size = 8
+        while hand_size >4: 
 
             #mulligan conditions:
             #with 7: To keep, need at least 2 spells, and at least 2 mana sources.
             #with 6: Same as 7
             #with 5: To keep, need at least 1 land, at least 1 spell.
 
-            if mull_no == 0:
+            if hand_size == 7:
                 mull_criteria = (hand.count('land')<=1 and hand.count('land')+hand.count('dork')<=2) or hand.count('spell') <1
-            elif mull_no == 1:
+            elif hand_size == 6:
                 mull_criteria = (hand.count('land') <=1 or hand.count('land')>=6) and hand.count('spell') < 2
-            elif mull_no == 2:
+            elif hand_size == 5:
                 mull_criteria = hand.count('land')== 0 and hand.count('spell') < 1
 
             if mull_criteria:
-                mull_no=mull_no+1
+                hand_size-=1
                 deck = copy.deepcopy(deck_list)
                 hand =[]
-                draw(7-mull_no)
+                draw(hand_size,deck,hand)
             else:
                 break
         if mull_no>=3:    #If you did mull three times, e.g to 4, concede
