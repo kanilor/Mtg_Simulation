@@ -37,7 +37,7 @@ for i in range(0,runs):
 		#with 5: To keep, need at least 1 land, at least 1 spell.
 
 		if mull_no == 0:
-			mull_criteria = hand.count('land')<= 1 and hand.count('land')+hand.count('dork')<=2 and hand.count('spell') < 1
+			mull_criteria = hand.count('land')<= 1 and hand.count('land')+hand.count('dork')<=2 and hand.count('spell') < 2
 		elif mull_no == 1:
 			mull_criteria = (hand.count('land') <= 1 or hand.count('land')>= 6) and hand.count('spell') >= 1
 		elif mull_no == 2:
